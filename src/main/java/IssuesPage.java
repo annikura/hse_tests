@@ -18,10 +18,12 @@ public class IssuesPage extends Page{
         goTo(LINK);
         List<Issue> result = new ArrayList<>();
 
-        List<WebElement> elements = webDriver.findElements(By.xpath("//a[@class='issue-summary']"));
-        for (WebElement element : elements) {
-            SingleIssuePage singleIssuePage = new SingleIssuePage(webDriver);
-            Issue issue = singleIssuePage.getIssue("http://localhost:8080" + element.getAttribute("href"));
+        int numberOfBoxes = webDriver.findElements(By.xpath("//a[@class='issue-toggler toggleDescrAnchor']")).size();
+
+        for (int i = 0; i < numberOfBoxes; i++) {
+            WebElement element = webDriver.findElements(By.xpath("//a[@class='issueId issueIdAnchor ']")).get(i);
+            SingleIsuuePage singleIssuePage = new SingleIsuuePage(webDriver);
+            Issue issue = singleIssuePage.getIssue(element.getAttribute("href"));
             if (issue.getSummary().equals(summary)) {
                 result.add(issue);
             }

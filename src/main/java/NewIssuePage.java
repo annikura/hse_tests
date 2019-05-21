@@ -12,7 +12,7 @@ public class NewIssuePage extends Page {
         TextFieldPageElement descriptionField = new TextFieldPageElement(webDriver, "//textarea[@name='l.I.ni.ei.eit.description']");
         summaryField.setText(summary);
         descriptionField.setText(description);
-        ButtonPageElement buttonPageElement = new ButtonPageElement(webDriver, "//button[@id='id_l.I.ni.ei.submitButton_74_2']");
+        ButtonPageElement buttonPageElement = new ButtonPageElement(webDriver, "//button[@class='jt-button submit-btn']");
         buttonPageElement.click();
     }
 }

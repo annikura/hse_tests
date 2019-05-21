@@ -6,7 +6,6 @@ public class TextFieldPageElement extends PageElement {
         super(webDriver, path);
     }
 
-    public void setText(final @NotNull String text) {
-        element.sendKeys(text);
+    public void setText(final @NotNull String text) { element.sendKeys(text);
     }
 }
